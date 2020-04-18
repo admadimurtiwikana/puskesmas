@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15 Jun 2015 pada 05.14
--- Versi Server: 5.6.21
--- PHP Version: 5.5.19
+-- Generation Time: 18 Apr 2020 pada 16.28
+-- Versi Server: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `puskesmas`
@@ -26,7 +28,7 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `apotek`
 --
 
-CREATE TABLE IF NOT EXISTS `apotek` (
+CREATE TABLE `apotek` (
   `id_pasien` int(11) NOT NULL,
   `nm_obat` text NOT NULL,
   `jml_satuan` text NOT NULL,
@@ -39,14 +41,53 @@ CREATE TABLE IF NOT EXISTS `apotek` (
 --
 
 INSERT INTO `apotek` (`id_pasien`, `nm_obat`, `jml_satuan`, `harga`, `detil_beli`) VALUES
-(102, ' "Iodin Povidon" , "Zink 20mg" ', '5', '28500', ' |  "Iodin Povidon" , "Zink 20mg"  | <br> |  "2" , "3"  | <br> |  "9000" , "19500"  | '),
-(104, ' "Mixagrip" , "Paracetamol 500mg" , "Ampicillin 500mg" ', '4', '19000', ' |  "Mixagrip" , "Paracetamol 500mg" , "Ampicillin 500mg"  | <br> |  "1" , "2" , "1"  | <br> |  "2500" , "11000" , "5500"  | '),
-(105, ' "Mixagrip" ', '2', '5000', ' |  "Mixagrip"  | <br> |  "2"  | <br> |  "5000"  | '),
-(106, ' "Antasida" , "Decolsin Sirup 60ml" ', '3', '21000', ' |  "Antasida" , "Decolsin Sirup 60ml"  | <br> |  "2" , "1"  | <br> |  "5000" , "16000"  | '),
-(107, ' "Cendo Xytrol Salep Mata 3,5 g" ', '1', '25000', ' |  "Cendo Xytrol Salep Mata 3,5 g"  | <br> |  "1"  | <br> |  "25000"  | '),
-(108, ' "Iodin Povidon" , "Zink 20mg" ', '2', '11000', ' |  "Iodin Povidon" , "Zink 20mg"  | <br> |  "1" , "1"  | <br> |  "4500" , "6500"  | '),
-(109, ' "Antasida" , "Kain Kasa" ', '6', '7500', ' |  "Antasida" , "Kain Kasa"  | <br> |  "1" , "5"  | <br> |  "2500" , "5000"  | '),
-(110, ' "Asam Mefenamat 500mg" , "Decolsin Sirup 60ml" ', '2', '22500', ' |  "Asam Mefenamat 500mg" , "Decolsin Sirup 60ml"  | <br> |  "1" , "1"  | <br> |  "6500" , "16000"  | ');
+(0, '', '', '', ''),
+(102, ' \"Iodin Povidon\" , \"Zink 20mg\" ', '5', '28500', ' |  \"Iodin Povidon\" , \"Zink 20mg\"  | <br> |  \"2\" , \"3\"  | <br> |  \"9000\" , \"19500\"  | '),
+(104, ' \"Mixagrip\" , \"Paracetamol 500mg\" , \"Ampicillin 500mg\" ', '4', '19000', ' |  \"Mixagrip\" , \"Paracetamol 500mg\" , \"Ampicillin 500mg\"  | <br> |  \"1\" , \"2\" , \"1\"  | <br> |  \"2500\" , \"11000\" , \"5500\"  | '),
+(105, ' \"Mixagrip\" ', '2', '5000', ' |  \"Mixagrip\"  | <br> |  \"2\"  | <br> |  \"5000\"  | '),
+(106, ' \"Antasida\" , \"Decolsin Sirup 60ml\" ', '3', '21000', ' |  \"Antasida\" , \"Decolsin Sirup 60ml\"  | <br> |  \"2\" , \"1\"  | <br> |  \"5000\" , \"16000\"  | '),
+(107, ' \"Cendo Xytrol Salep Mata 3,5 g\" ', '1', '25000', ' |  \"Cendo Xytrol Salep Mata 3,5 g\"  | <br> |  \"1\"  | <br> |  \"25000\"  | '),
+(108, ' \"Iodin Povidon\" , \"Zink 20mg\" ', '2', '11000', ' |  \"Iodin Povidon\" , \"Zink 20mg\"  | <br> |  \"1\" , \"1\"  | <br> |  \"4500\" , \"6500\"  | '),
+(109, ' \"Antasida\" , \"Kain Kasa\" ', '6', '7500', ' |  \"Antasida\" , \"Kain Kasa\"  | <br> |  \"1\" , \"5\"  | <br> |  \"2500\" , \"5000\"  | '),
+(110, ' \"Asam Mefenamat 500mg\" , \"Decolsin Sirup 60ml\" ', '2', '22500', ' |  \"Asam Mefenamat 500mg\" , \"Decolsin Sirup 60ml\"  | <br> |  \"1\" , \"1\"  | <br> |  \"6500\" , \"16000\"  | ');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pasien`
+--
+
+CREATE TABLE `data_pasien` (
+  `id` varchar(10) NOT NULL,
+  `password` varchar(10) NOT NULL,
+  `namapasien` varchar(20) NOT NULL,
+  `tgllahir` date NOT NULL,
+  `tempatlahir` varchar(20) NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `agama` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `alamat` varchar(30) NOT NULL,
+  `nohp` varchar(20) NOT NULL,
+  `level` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pasien`
+--
+
+INSERT INTO `data_pasien` (`id`, `password`, `namapasien`, `tgllahir`, `tempatlahir`, `gender`, `agama`, `status`, `alamat`, `nohp`, `level`) VALUES
+('111', '', '111', '0000-00-00', '', '', '', '', '', '', ''),
+('1234', '1234', 'murti', '0000-00-00', '', '', '', '', '', '', ''),
+('1122', '123', 'tika', '1111-11-11', '', '', '', '', '', '', ''),
+('144', '111', 'gara', '1123-11-11', 'pekalongan', '', '', '', '', '', ''),
+('342523', '122', 'adma', '1223-03-12', 'pekalongan', 'laki_laki', '', '', '', '', ''),
+('0009', '123', 'wika', '4564-03-12', 'semarang', 'laki_laki', 'Islam', '', '', '', ''),
+('1441', '111', 'asek', '1123-11-11', 'pekalongan', 'laki_laki', 'katolik', 'Single', '', '', ''),
+('102', '12345', 'asti', '3445-03-12', 'semarang', 'perempuan', 'katolik', 'Single', '', '', ''),
+('11423', '123', 'kiki', '0000-00-00', 'pekalongan', 'laki_laki', 'Islam', 'Duda', 'perumahan kwaya', '', ''),
+('102', '12', 'wika12', '5332-03-12', 'bantir', 'laki_laki', 'katolik', 'Menikah', 'perumahan kwaya', '123123', ''),
+('107', '582', 'aan', '2020-04-01', 'erw', 'perempuan', 'kristen', 'Duda', 'dfasdwe', '234234', ''),
+('134', '134', 'anjar', '2020-04-22', 'kudus', 'laki laki', 'islam', 'duda', 'kudus pantura', '102030', 'Pasien');
 
 -- --------------------------------------------------------
 
@@ -54,7 +95,7 @@ INSERT INTO `apotek` (`id_pasien`, `nm_obat`, `jml_satuan`, `harga`, `detil_beli
 -- Struktur dari tabel `dokter`
 --
 
-CREATE TABLE IF NOT EXISTS `dokter` (
+CREATE TABLE `dokter` (
   `id_pasien` int(11) NOT NULL,
   `hasil_periksa` text NOT NULL,
   `resep` text NOT NULL,
@@ -68,14 +109,15 @@ CREATE TABLE IF NOT EXISTS `dokter` (
 --
 
 INSERT INTO `dokter` (`id_pasien`, `hasil_periksa`, `resep`, `saran_dokter`, `detil_periksa`, `biaya`) VALUES
-(102, 'Baik', '1 Kaplet Paracetamol', 'Minum Air Putih yang Banyak!', ' |  "Konsultasi Dokter" , "Suntik Umum"  | <br> |  "10000" , "10000"  | ', '20000'),
-(104, 'Konsultasi dan Suntik Umum', '1 Mixagrip\r\n2 Parasetamol\r\n1 Ampicilin', 'Selalu jaga Nafsu Makan', ' |  "Konsultasi Dokter" , "Suntik Umum"  | <br> |  "10000" , "10000"  | ', '20000'),
-(105, 'werwesfve', 'rger', 'erferf', ' |  "Konsultasi Dokter"  | <br> |  "10000"  | ', '10000'),
-(106, 'Konsultasi', '1 Kaplet Amoxicillin', 'Makan Sayuran yang banyak!', ' |  "Konsultasi Dokter"  | <br> |  "10000"  | ', '10000'),
-(107, 'Konsultasi', '1 Cendo', 'Jangan Terlalu Lama Menonton TV!', ' |  "Konsultasi Dokter" , "Pemeriksaan Mata"  | <br> |  "10000" , "50000"  | ', '60000'),
-(108, 'Konsultasi dan Suntik Bius', '1 Paramex', 'Jangan Makan Permen Banyak2!', ' |  ""  | <br> |  ""  | ', '0'),
-(109, 'fasf', 'dgrg', 'drgd', ' |  "Pemeriksaan Mata" , "Persalinan"  | <br> |  "50000" , "500000"  | ', '550000'),
-(110, 'wfef', 'dfegrgfw', 'wefwef', ' |  "Cabut/Tambal Gigi" , "Konsultasi Dokter"  | <br> |  "50000" , "10000"  | ', '60000');
+(0, '', '', '', '', ''),
+(102, 'Baik', '1 Kaplet Paracetamol', 'Minum Air Putih yang Banyak!', ' |  \"Konsultasi Dokter\" , \"Suntik Umum\"  | <br> |  \"10000\" , \"10000\"  | ', '20000'),
+(104, 'Konsultasi dan Suntik Umum', '1 Mixagrip\r\n2 Parasetamol\r\n1 Ampicilin', 'Selalu jaga Nafsu Makan', ' |  \"Konsultasi Dokter\" , \"Suntik Umum\"  | <br> |  \"10000\" , \"10000\"  | ', '20000'),
+(105, 'werwesfve', 'rger', 'erferf', ' |  \"Konsultasi Dokter\"  | <br> |  \"10000\"  | ', '10000'),
+(106, 'Konsultasi', '1 Kaplet Amoxicillin', 'Makan Sayuran yang banyak!', ' |  \"Konsultasi Dokter\"  | <br> |  \"10000\"  | ', '10000'),
+(107, 'Konsultasi', '1 Cendo', 'Jangan Terlalu Lama Menonton TV!', ' |  \"Konsultasi Dokter\" , \"Pemeriksaan Mata\"  | <br> |  \"10000\" , \"50000\"  | ', '60000'),
+(108, 'Konsultasi dan Suntik Bius', '1 Paramex', 'Jangan Makan Permen Banyak2!', ' |  \"\"  | <br> |  \"\"  | ', '0'),
+(109, 'fasf', 'dgrg', 'drgd', ' |  \"Pemeriksaan Mata\" , \"Persalinan\"  | <br> |  \"50000\" , \"500000\"  | ', '550000'),
+(110, 'wfef', 'dfegrgfw', 'wefwef', ' |  \"Cabut/Tambal Gigi\" , \"Konsultasi Dokter\"  | <br> |  \"50000\" , \"10000\"  | ', '60000');
 
 -- --------------------------------------------------------
 
@@ -83,7 +125,7 @@ INSERT INTO `dokter` (`id_pasien`, `hasil_periksa`, `resep`, `saran_dokter`, `de
 -- Struktur dari tabel `obat`
 --
 
-CREATE TABLE IF NOT EXISTS `obat` (
+CREATE TABLE `obat` (
   `id_obat` int(11) NOT NULL,
   `nama_obat` text NOT NULL,
   `j_obat` text NOT NULL,
@@ -134,7 +176,7 @@ INSERT INTO `obat` (`id_obat`, `nama_obat`, `j_obat`, `stok_obat_awal`, `stok_ob
 -- Struktur dari tabel `pasien`
 --
 
-CREATE TABLE IF NOT EXISTS `pasien` (
+CREATE TABLE `pasien` (
   `id_pasien` int(11) NOT NULL,
   `level` text NOT NULL,
   `pass_pasien` text NOT NULL,
@@ -161,6 +203,7 @@ CREATE TABLE IF NOT EXISTS `pasien` (
 --
 
 INSERT INTO `pasien` (`id_pasien`, `level`, `pass_pasien`, `nm_pasien`, `tgl_lahir`, `tmp_lahir`, `gender`, `agama`, `status`, `alamat`, `hp`, `keluhan`, `r_rawat`, `dokter`, `cr_pembayaran`, `jam_masuk`, `tgl_masuk`, `jam_keluar`, `tgl_keluar`) VALUES
+(0, 'Pasien', '', '', '', '', '', '', '', '', '', '', '', '', '', '10:09:11', '18-04-2020', '', ''),
 (102, 'Pasien', '878', 'ss', '12/12/1212', 'wqeq', 'Laki - Laki', 'KongHuCu', 'Menikah', '1231312', '1231', 'Gigi', 'Poli Gigi', 'Andre', 'Askes', '08:25:06', '13-06-2015', '04:57:56', '14-06-2015'),
 (104, 'Pasien', '679', 'Indri', '12/12/1212', 'fh', 'Perempuan', 'KongHuCu', 'Menikah', 'asdad', '1212', 'Persalinan Ibu Hamil', 'Poli Kesehatan Ibu Anak', 'Retno', 'Tunai', '17:50:13', '14-06-2015', '17:54:49', '14-06-2015'),
 (105, 'Pasien', '462', 'Dewi', '24/9/1994', 'wef', 'Perempuan', 'Protestan', 'Duda', 'wfwegtrg', '1212', 'Telinga / Hidung / Tenggorokan', 'Poli THT', 'Asih', 'Kartu Indonesia Sehat', '19:13:58', '14-06-2015', '19:16:29', '14-06-2015'),
@@ -168,7 +211,8 @@ INSERT INTO `pasien` (`id_pasien`, `level`, `pass_pasien`, `nm_pasien`, `tgl_lah
 (107, 'Pasien', '582', 'aan', '2/2/2102', 'erw', 'Perempuan', 'Protestan', 'Duda', 'dfasdwe', '234234', 'Mata', 'Poli Mata', 'Budi', 'Askes', '05:38:43', '15-06-2015', '05:41:28', '15-06-2015'),
 (108, 'Pasien', '438', 'Anggi', '24/9/1994', 'as', 'Perempuan', 'Hindu', 'Janda', 'dgerf', '1232', 'Gigi', 'Poli Gigi', 'Andre', 'Jamkesmas / BPJS Kesehatan', '08:01:49', '15-06-2015', '09:38:12', '15-06-2015'),
 (109, 'Pasien', '346', 'Rudi', '12/1/1111', 'fh', 'Perempuan', 'Hindu', 'Janda', 'kiu ui ', '1212', 'Demam / Flu', 'Poli Umum', 'Agus', 'Askes', '08:55:01', '15-06-2015', '09:03:22', '15-06-2015'),
-(110, 'Pasien', '122', 'Hasim', '12/1/1111', 'wef', 'Perempuan', 'Katolik', 'Menikah', 'sfewfef', '2452345', 'Pelayanan KB', 'Poli Kesehatan Ibu Anak', 'Dewi', 'Tunai', '09:12:04', '15-06-2015', '09:22:18', '15-06-2015');
+(110, 'Pasien', '122', 'Hasim', '12/1/1111', 'wef', 'Perempuan', 'Katolik', 'Menikah', 'sfewfef', '2452345', 'Pelayanan KB', 'Poli Kesehatan Ibu Anak', 'Dewi', 'Tunai', '09:12:04', '15-06-2015', '09:22:18', '15-06-2015'),
+(134, 'Pasien', '134', 'anjar', '2020-04-22', 'kudus\r\n', 'laki laki', 'islam', 'duda', 'kudus pantura', '102030', 'corona', 'h12', 'muslimin', 'cash', '09.00', '2020-01-20', '10.00', '2020-1-22');
 
 -- --------------------------------------------------------
 
@@ -176,7 +220,7 @@ INSERT INTO `pasien` (`id_pasien`, `level`, `pass_pasien`, `nm_pasien`, `tgl_lah
 -- Struktur dari tabel `pegawai`
 --
 
-CREATE TABLE IF NOT EXISTS `pegawai` (
+CREATE TABLE `pegawai` (
   `id_pegawai` int(11) NOT NULL,
   `pass_pegawai` text NOT NULL,
   `nm_pegawai` varchar(256) NOT NULL,
@@ -208,7 +252,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `pass_pegawai`, `nm_pegawai`, `jabatan`, `f
 -- Struktur dari tabel `proses`
 --
 
-CREATE TABLE IF NOT EXISTS `proses` (
+CREATE TABLE `proses` (
   `id_pasien` varchar(5) NOT NULL,
   `1_Edit` varchar(10) NOT NULL,
   `2_Dokter` varchar(10) NOT NULL,
@@ -222,6 +266,7 @@ CREATE TABLE IF NOT EXISTS `proses` (
 --
 
 INSERT INTO `proses` (`id_pasien`, `1_Edit`, `2_Dokter`, `3_Apotek`, `4_Bayar`, `5_Lunas`) VALUES
+('', 'Proses', 'Proses', 'Proses', 'Proses', 'Proses'),
 ('102', 'Tuntas', 'Tuntas', 'Tuntas', 'Tuntas', 'Tuntas'),
 ('104', 'Tuntas', 'Tuntas', 'Tuntas', 'Tuntas', 'Tuntas'),
 ('105', 'Tuntas', 'Tuntas', 'Tuntas', 'Tuntas', 'Tuntas'),
@@ -237,7 +282,7 @@ INSERT INTO `proses` (`id_pasien`, `1_Edit`, `2_Dokter`, `3_Apotek`, `4_Bayar`, 
 -- Struktur dari tabel `tarif`
 --
 
-CREATE TABLE IF NOT EXISTS `tarif` (
+CREATE TABLE `tarif` (
   `periksa` text NOT NULL,
   `biaya` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -264,7 +309,7 @@ INSERT INTO `tarif` (`periksa`, `biaya`) VALUES
 -- Struktur dari tabel `total`
 --
 
-CREATE TABLE IF NOT EXISTS `total` (
+CREATE TABLE `total` (
   `id_pasien` int(11) NOT NULL,
   `no_transaksi` int(11) NOT NULL,
   `total_prk_obt` text NOT NULL,
@@ -280,6 +325,7 @@ CREATE TABLE IF NOT EXISTS `total` (
 --
 
 INSERT INTO `total` (`id_pasien`, `no_transaksi`, `total_prk_obt`, `total_semua`, `bayar`, `kembali`, `tgl_trk`, `jam_trk`) VALUES
+(0, 0, '', '', '', '', '', ''),
 (102, 3, '48500', '0', '0000', '0', '14-06-2015', '04:57:56'),
 (104, 4, '39000', '39000', '40000', '1000', '14-06-2015', '17:54:49'),
 (105, 5, '15000', '0', '0', '0', '14-06-2015', '19:16:29'),
@@ -297,37 +343,38 @@ INSERT INTO `total` (`id_pasien`, `no_transaksi`, `total_prk_obt`, `total_semua`
 -- Indexes for table `apotek`
 --
 ALTER TABLE `apotek`
- ADD PRIMARY KEY (`id_pasien`);
+  ADD PRIMARY KEY (`id_pasien`);
 
 --
 -- Indexes for table `dokter`
 --
 ALTER TABLE `dokter`
- ADD PRIMARY KEY (`id_pasien`);
+  ADD PRIMARY KEY (`id_pasien`);
 
 --
 -- Indexes for table `obat`
 --
 ALTER TABLE `obat`
- ADD PRIMARY KEY (`id_obat`);
+  ADD PRIMARY KEY (`id_obat`);
 
 --
 -- Indexes for table `pasien`
 --
 ALTER TABLE `pasien`
- ADD PRIMARY KEY (`id_pasien`);
+  ADD PRIMARY KEY (`id_pasien`);
 
 --
 -- Indexes for table `proses`
 --
 ALTER TABLE `proses`
- ADD PRIMARY KEY (`id_pasien`);
+  ADD PRIMARY KEY (`id_pasien`);
 
 --
 -- Indexes for table `total`
 --
 ALTER TABLE `total`
- ADD PRIMARY KEY (`id_pasien`);
+  ADD PRIMARY KEY (`id_pasien`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
