@@ -18,7 +18,7 @@
   <script type="text/javascript" src="Scripts/jquery.bootstrap.wizard.min.js"></script>
   <script type="text/javascript" src="Scripts/FakeLoader/fakeLoader.min.js"></script>
 	
-<!-- Judul Marquee -->
+<!-- Judul Marqueeaaa -->
 
 
 <!-- FakeLoader -->
