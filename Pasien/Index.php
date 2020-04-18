@@ -1,11 +1,10 @@
 <html>
 <?php
-include ('cek.php');
-	mysql_connect('localhost','root',''); 
-	mysql_select_db('puskesmas');
-	$sqlTampil="select * from pasien Where id_pasien='$_SESSION[idpsn]'";  
-	$qryTampil=mysql_query($sqlTampil);  
-	$dataTampil=mysql_fetch_array($qryTampil);  
+	include ('cek.php');
+	include "../login/koneksi.php";
+	$sqlTampil="select * from data_pasien Where id='$_SESSION[idpsn]'";  
+	$qryTampil=mysqli_query($conn , $sqlTampil);  
+	$dataTampil=mysqli_fetch_array($qryTampil);  
 ?>
 <head>
   <title>&nbsp ./Puskesmas &nbsp- &nbspPasien &nbsp|</title>
@@ -439,7 +438,13 @@ width:93%;
 					</marquee>
 					</h4></center>
 				</div>
-				
+				<?php
+						
+						$sqlTampil="select * from pasien Where id_pasien='$_SESSION[idpsn]'";  
+						$qryTampil=mysqli_query($conn , $sqlTampil);  
+						$dataTampil=mysqli_fetch_assoc($qryTampil); 
+				?>
+
 				<!-- Isi Index.php -->
 				<div class="isi">
 					<h5><b>

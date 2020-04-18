@@ -2,7 +2,9 @@
 session_start();
  
 if ($_SESSION['level'] == "Pasien")
-		{}
+		{
+		// header('location:Dilarang.php');
+		}
 else if ($_SESSION['level'] == "Admin")
 		{
 		header('location:Dilarang.php');

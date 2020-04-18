@@ -74,14 +74,14 @@ $(document).ready(function(){
   <div class="col-md-8 col-md-offset-2">
   <br><br><br>
   
-<form id="loginpsn" class="form-horizontal" action="CekMasukPasien.php" method="post">
+<form id="registrasipasien" class="form-horizontal" action="prosesregis.php" method="post">
 		<div class="col-md-offset-2 col-md-10">
 			<h3> &nbsp <img src="../Images/a.png" alt="Logo" width="300" ></h3>
 		</div>
 	<hr>
   
 		<div class="col-md-9 col-md-offset-1">
-			<h3>./Halaman Masuk Pasien</h3> 
+			<h3>REGISTRASI PASIEN</h3> 
 		</div>
 	
 		<div>
@@ -92,8 +92,7 @@ $(document).ready(function(){
 		<label class="col-md-3 control-label">ID Pasien</label>
 			<div class="col-md-6 inputGroupContainer">
 				<div class="input-group">
-				<input type="text" name="idpsn" class="form-control" placeholder="ID Pasien">
-				<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+				<input type="text" name="idpsn" class="form-control" placeholder="ID Pasien" style="width:250px">
 				</div>
 			</div>
 	</div>
@@ -102,79 +101,108 @@ $(document).ready(function(){
 		<label class="col-md-3 control-label">Kata Sandi</label>
 			<div class="col-md-6 inputGroupContainer">
 				<div class="input-group">
-				<input type="password" name="passpsn" class="form-control" placeholder="Kata Sandi">
-				<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+				<input type="password" name="passpsn" class="form-control" placeholder="Kata Sandi" style="width:250px">
+				</div>
+			</div>
+	</div>
+
+    <div class="form-group">
+		<label class="col-md-3 control-label">Nama Pasien</label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+				<input type="text" name="namapasien" class="form-control" placeholder="Nama pasien" style="width:250px">
 				</div>
 			</div>
 	</div>
 	
-	<div class="form-group">
-		<label class="col-md-3 control-label" id="captchaOperation"></label>
-			<div class="col-md-2 inputGroupContainer">
-				<input type="text" class="form-control" name="captcha" />
+    <div class="form-group">
+		<label class="col-md-3 control-label">Tanggal lahir </label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+				<input type="date" name="tgllahir" class="form-control"  style="width:250px">
+				</div>
 			</div>
 	</div>
-  
-	<div class="form-group">
-		<label class="col-md-offset-3 col-md-9">Belum Daftar ?? Lupa Kata Sandi ?? Masuk <a style="text-decoration:none" href="Registrasi.php">disini</a></label>
-	</div> 
-  
-	<div class="form-group">
-		<div class="col-md-offset-3 col-md-9">
-			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>&nbsp Masuk</button>
+      	
+    <div class="form-group">
+		<label class="col-md-3 control-label">Tempat lahir </label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+				<input type="text" name="Tempatlahir" placeholder="Tempat lahir" class="form-control"  style="width:250px">
+				</div>
+			</div>
+	</div>
+
+    <div class="form-group">
+		<label class="col-md-3 control-label">Gender </label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+                        <input type="radio" name="sex" value="laki_laki" /><font color="white">Laki laki  </font><br />
+                        <input type="radio" name="sex" value="perempuan" /><font color="white">Perempuan  </font><br />
+				</div>
+			</div>
+	</div>
+
+    <div class="form-group">
+		<label class="col-md-3 control-label">AGAMA</label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+				<select class="form-control" name="agama">
+                    <option>-</option>
+                    <option>Islam</option>
+                    <option>Kristen</option>
+                    <option>katolik</option>
+                    <option>Hindu</option>
+                    <option>Budha</option>
+                    </select>
+				</div>
+			</div>
+	</div>
+
+    <div class="form-group">
+		<label class="col-md-3 control-label">STATUS</label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+				<select class="form-control" name="status">
+                    <option>-</option>
+                    <option>Single</option>
+                    <option>Menikah</option>
+                    <option>janda</option>
+                    <option>Duda</option>
+                    </select>
+				</div>
+			</div>
+	</div>
+
+    <div class="form-group">
+		<label class="col-md-3 control-label">Alamat</label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+				<input type="text" name="Alamat" placeholder="Alamat" class="form-control"  style="width:400px">
+				</div>
+			</div>
+	</div>
+    
+    <div class="form-group">
+		<label class="col-md-3 control-label">No hp</label>
+			<div class="col-md-6 inputGroupContainer">
+				<div class="input-group">
+				<input type="text" name="Nohp" placeholder="Nomor Handphone" class="form-control"  style="width:250px">
+				</div>
+			</div>
+	</div>
+
+	<div class="form-group ">
+		<div class="col-md-offset-3 col-md-9 mb-3">
+			<button type="submit" class="btn btn-primary">DAFTAR</button>
 		</div>
 	</div>
+
 </form>
 
   </div>
 </div>
 
-<!--KontrolValidasi-->
-<script> 
-$(document).ready(function() {
-    // Generate a simple captcha
-    function randomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    };
-    $('#captchaOperation').html([randomNumber(1, 10), '+', randomNumber(1, 20), '='].join(' '));
-	
-    $('#loginpsn').formValidation({
-        message: 'Nilai ini tidak valid',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-			idpsn: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda belum memasukkan "ID Pasien" !'
-                    },
-                }
-            },
-            passpsn: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda belum memasukkan "Kata Sandi" !'
-                    },
-                }
-            },
-			captcha: {
-                validators: {
-                    callback: {
-                        message: 'Jawaban Salah',
-                        callback: function(value, validator, $field) {
-                            var items = $('#captchaOperation').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
-                            return value == sum;
-                        }
-                    }
-                }
-            },
-        }
-    });
-});
-</script>
 
 <!--KontrolFakeLoader-->
 <script> 
